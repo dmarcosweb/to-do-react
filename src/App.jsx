@@ -16,8 +16,12 @@ const App = () => {
   };
 
   const removeItem = (itemId) => {
-    const newItems = items.filter((item) => item.id !== itemId);
-    setItems(newItems);
+    if (removeItem) {
+      if (confirm("Deseja remover esse item da lista ?")) {
+        const newItems = items.filter((item) => item.id !== itemId);
+        setItems(newItems);
+      }
+    }
   };
 
   return (
@@ -29,3 +33,18 @@ const App = () => {
 };
 
 export default App;
+
+/*
+const removeItem = (itemId) => {
+    if (removeItem) {
+        if (confirm(`Deseja remover esse item`)) {
+          const newItems = items.filter((item) => item.id !== itemId);
+          setItems(newItems);
+        }
+      };
+    }
+    if (items === []) {
+      alert("lista vazia");
+    }
+  };
+*/
