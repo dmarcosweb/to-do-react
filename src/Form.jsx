@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Form = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState("");
@@ -6,11 +8,11 @@ const Form = ({ addItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!newItemName) {
-      alert("Preench o campo para acrescentar um novo item");
+      toast.warning("Digite um item para adicionar a lista", {autoClose: 2000,draggable: false,});
       return;
     }
-    setNewItemName(addItem)
-    setNewItemName('')
+    setNewItemName(addItem);
+    setNewItemName("");
   };
 
   return (
